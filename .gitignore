@@ -1,6 +1,24 @@
+# Node modules
 node_modules/
-.env
-seen_posts.json
+
+# Agent Relay runtime files
+.agent-relay/messages/
+.agent-relay/outbox/
+.agent-relay/relay.sock.pid
+.agent-relay/sessions.jsonl
+.agent-relay/team/
+.agent-relay/mcp-identity
+.agent-relay/mcp-identity-*
+.agent-relay/runtime.json
+
+# Gemini artifacts
+.gemini/
+
+# Generated data files
 moltbook_log.json
-*.log
+seen_posts.json
+expert_findings.json
+*_repo_status.json
+
+# OS files
 .DS_Store
