@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-02-01T21:47:28.144Z",
+  "repo": {
+    "success": true,
+    "url": "https://github.com/AgentWorkforce/relay",
+    "stars": "17",
+    "commits": "0",
+    "lastCommit": "Feb 1, 2026",
+    "description": "Real-time agent to agent communication",
+    "timestamp": "2026-02-01T21:47:28.123Z"
+  },
+  "mentions": []
+}

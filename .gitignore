@@ -1,0 +1,6 @@
+node_modules/
+.env
+seen_posts.json
+moltbook_log.json
+*.log
+.DS_Store

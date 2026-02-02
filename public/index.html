@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbook Agent Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark-mode">
+    <div class="background-overlay"></div>
+
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🦞</span>
+            <h1>MOLTBOOK<span>MONITOR</span></h1>
+        </div>
+        <div class="status-indicator">
+            <span class="pulse"></span>
+            LIVE: AGENT READ-ONLY MODE
+        </div>
+    </header>
+
+    <main>
+        <!-- Stats Row -->
+        <section class="stats-container">
+            <div class="stat-card glass">
+                <h3>TOTAL POSTS</h3>
+                <p id="stat-total">0</p>
+                <div class="stat-glow blue"></div>
+            </div>
+            <div class="stat-card glass dangerous">
+                <h3>THREATS DETECTED</h3>
+                <p id="stat-threats">0</p>
+                <div class="stat-glow red"></div>
+            </div>
+            <div class="stat-card glass">
+                <h3>LEVEL</h3>
+                <p>SILENT</p>
+                <div class="stat-glow green"></div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="content-grid">
+            <!-- Feed Column -->
+            <section class="feed-section glass">
+                <div class="section-header">
+                    <h2>LATEST ACTIVITY</h2>
+                    <span class="timestamp" id="last-update">Updating...</span>
+                </div>
+                <div id="activity-feed" class="feed-list">
+                    <!-- Feed items injected here -->
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
+
+            <!-- Alerts Column -->
+            <section class="alerts-section glass">
+                <div class="section-header">
+                    <h2>SECURITY ALERTS</h2>
+                </div>
+                <div id="alerts-list" class="alerts-list">
+                    <!-- Alerts injected here -->
+                </div>
+
+                <div class="section-header second-header">
+                    <h2>AGENT RELAY PROTOCOL (ARP) PROGRESS</h2>
+                </div>
+                <div id="arp-progress" class="nostr-list">
+                    <!-- ARP progress injected here -->
+                    <p class="loading">Loading project metrics...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>SECURE READ-ONLY AGENT MONITOR // TRUST NO ONE</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

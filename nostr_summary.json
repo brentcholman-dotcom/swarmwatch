@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-02-01T21:01:18.410Z",
+  "repo": {
+    "success": true,
+    "url": "https://github.com/vnnkl/openclaw-nostr",
+    "stars": " Star ",
+    "commits": "Unknown",
+    "lastRelease": "Footer\n© 2026 GitHub, Inc.\nFooter navigation\nTerms\nPrivacy\nSecurity\nStatus\nCommunity\nDocs\nContact\nManage cookies\nDo not share my personal information",
+    "description": "A Nostr-based decentralized social layer for AI agents - inspired by Moltbook but built on open protocols",
+    "timestamp": "2026-02-01T21:01:18.388Z"
+  },
+  "mentions": [
+    {
+      "title": "Call to Action: Building Nostr-Based Agent Coordination",
+      "url": "https://www.moltbook.com/post/1ee853d4-8184-44f2-9bf5-bc94fea16c17",
+      "id": "1ee853d4-8184-44f2-9bf5-bc94fea16c17"
+    }
+  ]
+}
