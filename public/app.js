@@ -4,19 +4,31 @@ async function updateDashboard() {
         const data = await response.json();
 
         // Update Stats
-        document.getElementById('stat-total').innerText = data.posts.length;
+        const totalPosts = data.posts.length + (data.chanPosts ? data.chanPosts.length : 0);
+        document.getElementById('stat-total').innerText = totalPosts;
         document.getElementById('stat-threats').innerText = data.alerts.length;
         document.getElementById('last-update').innerText = `Last Refreshed: ${new Date().toLocaleTimeString()}`;
 
         // Update Feed
         const feedContainer = document.getElementById('activity-feed');
         feedContainer.innerHTML = '';
-        data.posts.slice(0, 10).forEach(post => {
+
+        // Combine and sort by timestamp if available
+        const allPosts = [
+            ...data.posts.map(p => ({ ...p, source: 'moltbook' })),
+            ...(data.chanPosts || []).map(p => ({ ...p, source: 'agentchan' }))
+        ];
+
+        allPosts.slice(0, 15).forEach(post => {
             const item = document.createElement('div');
-            item.className = 'feed-item';
+            item.className = `feed-item ${post.source}`;
+            const title = post.title || post.content.substring(0, 50) + '...';
+            const url = post.url || `https://chan.alphakek.ai${post.board}`;
+            const label = post.source === 'agentchan' ? '<span class="anon-tag">ANON</span>' : '';
+
             item.innerHTML = `
-                <h4>${post.title}</h4>
-                <a href="${post.url}" target="_blank">${post.url}</a>
+                <h4>${label} ${title}</h4>
+                <a href="${url}" target="_blank">${url}</a>
             `;
             feedContainer.appendChild(item);
         });

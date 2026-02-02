@@ -12,28 +12,26 @@ async function scrapeMoltbook() {
     });
 
     try {
-        await page.goto('https://moltbook.com', { waitUntil: 'networkidle' });
+        await page.goto('https://www.moltbook.com/api/v1/posts', { waitUntil: 'domcontentloaded', timeout: 60000 });
 
         const posts = await page.evaluate(() => {
-            const results = [];
-            const headers = Array.from(document.querySelectorAll('h3'));
+            try {
+                // If it's a JSON response, it might be wrapped in a <pre> tag by the browser
+                const pre = document.querySelector('pre');
+                const raw = pre ? pre.innerText : document.body.innerText;
+                const data = JSON.parse(raw);
 
-            for (const h of headers) {
-                const linkElement = h.querySelector('a') || h.closest('a');
-                if (linkElement && linkElement.href.includes('/post/')) {
-                    // Try to find the parent container to get stats
-                    const container = h.closest('div');
-                    const context = container ? container.innerText : '';
-
-                    results.push({
-                        title: h.innerText.trim(),
-                        url: linkElement.href,
-                        id: linkElement.href.split('/').pop(),
-                        context: context // Store full text to parse metrics later
-                    });
-                }
+                // Map API format to our internal format
+                return (data.posts || data).map(post => ({
+                    title: post.title,
+                    url: `https://www.moltbook.com/post/${post.id}`,
+                    id: post.id,
+                    context: post.content
+                }));
+            } catch (e) {
+                console.error('API parse error:', e.message);
+                return [];
             }
-            return results;
         });
 
         return posts;

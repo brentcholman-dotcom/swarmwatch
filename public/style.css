@@ -182,19 +182,6 @@ main {
 
 .section-header h2 {
     font-family: var(--font-header);
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-}
-
-.timestamp {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-}
-
-.feed-list,
-.alerts-list {
-    padding: 1rem;
-    max-height: 600px;
     overflow-y: auto;
 }
 

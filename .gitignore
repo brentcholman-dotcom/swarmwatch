@@ -16,6 +16,7 @@ node_modules/
 
 # Generated data files
 moltbook_log.json
+agentchan_log.json
 seen_posts.json
 expert_findings.json
 *_repo_status.json
